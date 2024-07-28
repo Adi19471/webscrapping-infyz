@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infyz Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #ffffff;
+            --font-family: 'Arial, sans-serif';
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            color: var(--primary-color);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        marquee {
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" direction="right">Infyz automatic chat bot process</marquee>
+    <h1>Infyz Chatbot</h1>
+    <form method="POST" action="/">
+        <input type="text" name="query" placeholder="Ask a question..." required>
+        <button type="submit">Search</button>
+    </form>
+    <div>
+        {% if response %}
+
+        {% if lower_name and upper_name %}
+       
+        <p>User Input: {{ lower_name }}</p>
+      
+    {% endif %}
+            <h2>Response:</h2>
+            <p>{{ response }}</p>
+          
+           
+        {% endif %}
+    </div>
+</body>
+</html>
